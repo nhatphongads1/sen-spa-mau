@@ -161,39 +161,43 @@ footer{border-top:1px solid var(--line);padding:34px 0 90px;text-align:center;co
   <div class="stage">
     <svg class="scene" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
       <defs>
-        <linearGradient id="cof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8e6df"/><stop offset="1" stop-color="#3f9ea5"/></linearGradient>
-        <linearGradient id="cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9cdb4"/><stop offset=".5" stop-color="#fffaf0"/><stop offset="1" stop-color="#bfae8c"/></linearGradient>
-        <linearGradient id="strm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8e6df"/><stop offset="1" stop-color="#4aa9b0"/></linearGradient>
-        <clipPath id="inside"><path d="M270 720 H530 Q522 846 400 872 Q278 846 270 720 Z"/></clipPath>
-        <radialGradient id="glow" cx="50%" cy="68%" r="40%"><stop offset="0" stop-color="#dba990" stop-opacity=".28"/><stop offset="1" stop-color="#dba990" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glow" cx="50%" cy="76%" r="42%"><stop offset="0" stop-color="#f7bfd0" stop-opacity=".30"/><stop offset="1" stop-color="#f7bfd0" stop-opacity="0"/></radialGradient>
+        <radialGradient id="lglow" cx="50%" cy="72%" r="30%"><stop offset="0" stop-color="#fff1d6" stop-opacity=".55"/><stop offset="1" stop-color="#fff1d6" stop-opacity="0"/></radialGradient>
+        <linearGradient id="pet1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4a6bd"/><stop offset=".7" stop-color="#e88aa7"/><stop offset="1" stop-color="#c76585"/></linearGradient>
+        <linearGradient id="pet2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9e3"/><stop offset=".7" stop-color="#f7b6c9"/><stop offset="1" stop-color="#e58aa6"/></linearGradient>
+        <linearGradient id="pet3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffafc"/><stop offset=".7" stop-color="#ffe3ec"/><stop offset="1" stop-color="#f6b9cb"/></linearGradient>
+        <linearGradient id="wat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a7380"/><stop offset="1" stop-color="#0d2a31"/></linearGradient>
+        <linearGradient id="stn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46606a"/><stop offset="1" stop-color="#1b2a30"/></linearGradient>
       </defs>
       <rect width="800" height="1000" fill="url(#glow)"/>
+      <rect id="lg" width="800" height="1000" fill="url(#lglow)" opacity=".25"/>
+      <g display="none"><rect id="stream" width="1" height="0"/><rect id="liquid" width="1" height="0"/><ellipse id="crema" rx="1" ry="1"/></g>
+      <ellipse cx="400" cy="850" rx="330" ry="52" fill="#000" opacity=".35"/>
+      <ellipse cx="400" cy="835" rx="320" ry="50" fill="url(#wat)"/>
+      <ellipse class="rip" cx="400" cy="835" rx="150" ry="22" fill="none" stroke="#bfeeea" stroke-width="2" opacity="0"/>
+      <ellipse class="rip" cx="400" cy="835" rx="150" ry="22" fill="none" stroke="#bfeeea" stroke-width="2" opacity="0"/>
+      <ellipse class="rip" cx="400" cy="835" rx="150" ry="22" fill="none" stroke="#bfeeea" stroke-width="2" opacity="0"/>
       <g>
-        <rect x="360" y="0" width="80" height="168" rx="10" fill="#1f2d27" stroke="#dba990" stroke-opacity=".5"/>
-        <path d="M368 168 H432 L418 206 H382 Z" fill="#dba990"/>
+        <ellipse cx="650" cy="838" rx="62" ry="16" fill="url(#stn)"/>
+        <ellipse cx="650" cy="816" rx="46" ry="13" fill="url(#stn)"/>
+        <ellipse cx="650" cy="798" rx="30" ry="10" fill="url(#stn)"/>
+        <ellipse cx="150" cy="842" rx="48" ry="13" fill="url(#stn)"/>
+        <ellipse cx="150" cy="826" rx="32" ry="10" fill="url(#stn)"/>
       </g>
-      <rect id="stream" x="394" y="206" width="12" height="0" rx="6" fill="url(#strm)"/>
-      <ellipse cx="400" cy="905" rx="250" ry="26" fill="#000" opacity=".45"/>
-      <ellipse cx="400" cy="886" rx="215" ry="20" fill="#9c8a66"/>
-      <path d="M262 712 H538 Q530 852 400 880 Q270 852 262 712 Z" fill="url(#cup)"/>
-      <path d="M262 712 H538 Q534 736 530 752 H270 Q266 736 262 712 Z" fill="#d9a98f" opacity=".85"/>
-      <g clip-path="url(#inside)">
-        <rect id="liquid" x="260" y="872" width="280" height="0" fill="url(#cof)"/>
-        <ellipse id="crema" cx="400" cy="872" rx="128" ry="9" fill="#e3faf6" opacity="0"/>
+      <g id="lotus" transform="translate(400 818)"></g>
+      <circle id="stamen" cx="400" cy="740" r="10" fill="#ffe6a8" opacity=".9"/>
+      <g id="steam" opacity="0" fill="none" stroke="#f6ecd9" stroke-width="4" stroke-linecap="round">
+        <path d="M360 590 q-22 -34 0 -68 q22 -34 0 -68"><animate attributeName="stroke-opacity" values=".12;.45;.12" dur="3.2s" repeatCount="indefinite"/></path>
+        <path d="M400 580 q-22 -34 0 -68 q22 -34 0 -68"><animate attributeName="stroke-opacity" values=".45;.12;.45" dur="3.6s" repeatCount="indefinite"/></path>
+        <path d="M440 590 q-22 -34 0 -68 q22 -34 0 -68"><animate attributeName="stroke-opacity" values=".12;.45;.12" dur="3s" repeatCount="indefinite"/></path>
       </g>
-      <ellipse cx="400" cy="716" rx="136" ry="10" fill="#fffaf0" opacity=".45"/>
-      <g id="steam" opacity="0" fill="none" stroke="#f6ecd9" stroke-width="5" stroke-linecap="round">
-        <path d="M350 668 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="3s" repeatCount="indefinite"/></path>
-        <path d="M400 658 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".5;.15;.5" dur="3.4s" repeatCount="indefinite"/></path>
-        <path d="M450 668 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="2.8s" repeatCount="indefinite"/></path>
-      </g>
-      <g id="beans" fill="#f4a9bb" stroke="#c46a85"></g>
+      <g id="beans" fill="#f7b6c9" stroke="#d57a98"></g>
     </svg>
 
     <div class="beat b1 on" data-from="0" data-to=".22">
       <div class="eyebrow">Sen Spa</div>
       <h1>Chậm lại một chút,<br><span class="gold">đẹp từ bên trong</span></h1>
-      <p>Không gian yên tĩnh, tinh dầu thiên nhiên, bàn tay tận tâm. Cuộn xuống để xem chậu nước thảo mộc được rót đầy.</p>
+      <p>Không gian yên tĩnh, tinh dầu thiên nhiên, bàn tay tận tâm. Cuộn xuống để xem đoá sen nở.</p>
     </div>
     <div class="beat b2" data-from=".24" data-to=".5">
       <div class="eyebrow">Bước 1 · Hương thơm</div>
@@ -357,6 +361,13 @@ footer{border-top:1px solid var(--line);padding:34px 0 90px;text-align:center;co
     var x=80+Math.random()*640; e.setAttribute('cx',x); e.setAttribute('cy',-30);
     beansG.appendChild(e); beans.push({el:e,x:x,d:Math.random()*.5,r:Math.random()*360});
   }
+  // hoa sen nở theo thanh cuộn
+  var lotus=$('#lotus'), stamen=$('#stamen'), lg=$('#lg'), rips=$$('.rip'), petals=[];
+  [{g:'pet1',s:1.3,a:[-82,-54,0,54,82]},{g:'pet2',s:1.05,a:[-64,-36,-12,12,36,64]},{g:'pet3',s:.74,a:[-38,-14,14,38]}].forEach(function(L){
+    L.a.forEach(function(a){ var el=document.createElementNS(NS,'path'); el.setAttribute('d','M0 0 C-36 -30 -40 -112 0 -172 C40 -112 36 -30 0 0 Z');
+      el.setAttribute('fill','url(#'+L.g+')'); el.setAttribute('stroke','rgba(255,255,255,.35)'); el.setAttribute('stroke-width','1.2');
+      lotus.appendChild(el); petals.push({el:el,a:a,s:L.s}); });
+  });
   function render(){
     var h=story.offsetHeight-innerHeight; if(!(h>0))return;
     var p=clamp(-story.getBoundingClientRect().top/h,0,1);
@@ -380,6 +391,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 90px;text-align:center;co
       var a=parseFloat(el.dataset.from), z=parseFloat(el.dataset.to);
       el.classList.toggle('on',p>=a&&p<=z||(a===0&&p<=z));
     });
+    var op=clamp((p-.1)/.6,0,1);
+    petals.forEach(function(q){ q.el.setAttribute('transform','rotate('+(q.a*op)+') scale('+(q.s*(.8+.2*op))+')'); });
+    stamen.setAttribute('r',8+op*16); lg.setAttribute('opacity',(.2+op*.8).toFixed(2));
+    rips.forEach(function(r,i){ var t=((p*2.2)+i/3)%1; r.setAttribute('rx',120+t*210); r.setAttribute('ry',18+t*30); r.setAttribute('opacity',(p>.05?(1-t)*.55:0).toFixed(2)); });
     hint.style.opacity=p>.03?0:1;
   }
   /* ---------- Chung ---------- */
