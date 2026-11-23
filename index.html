@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sen Spa — Thư giãn trọn vẹn, đẹp từ bên trong</title>
+<meta name="description" content="Sen Spa: massage, chăm sóc da, liệu trình thư giãn trong không gian yên tĩnh. Xem dịch vụ và đặt lịch hẹn ngay.">
+<meta property="og:title" content="Sen Spa">
+<meta property="og:description" content="Thư giãn trọn vẹn, đẹp từ bên trong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1a1d; --bg2:#122327; --card:#18303a; --line:#2e4d57;
+  --gold:#dba990; --gold2:#f7d9c9; --cream:#f6ecd9; --muted:#c9b79c;
+  --serif:"Playfair Display",Georgia,serif; --sans:"Be Vietnam Pro",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.gold{color:var(--gold)}
+.todo{background:rgba(219,169,144,.18);border:1px dashed var(--gold);color:var(--gold2);padding:1px 8px;border-radius:6px;font-size:.92em}
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.solid{background:rgba(13,26,29,.92);backdrop-filter:blur(8px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.04em}
+.logo-slot{width:34px;height:34px;display:grid;place-items:center}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:.93rem}
+.nav ul a{color:var(--muted)} .nav ul a:hover{color:var(--gold2)}
+.cart-btn{border:1px solid var(--gold);color:var(--gold2);background:transparent;border-radius:999px;padding:8px 16px;font:inherit;font-size:.9rem;cursor:pointer}
+.cart-btn b{background:var(--gold);color:#09141a;border-radius:999px;padding:0 8px;margin-left:6px}
+@media(max-width:760px){.nav ul{display:none}}
+/* hero scroll story */
+.story{height:420vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;
+  background:radial-gradient(ellipse at 50% 30%,#23444d 0%,var(--bg) 70%)}
+.stage svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.beat{position:absolute;left:0;right:0;padding:0 24px;text-align:center;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s;pointer-events:none}
+.beat.on{opacity:1;transform:none;pointer-events:auto}
+.beat h1,.beat h2{font-family:var(--serif);font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.12;text-shadow:0 4px 30px #000}
+.beat p{color:var(--muted);max-width:520px;margin:14px auto 0;font-size:1.05rem;text-shadow:0 2px 14px #000}
+.eyebrow{letter-spacing:.35em;font-size:.75rem;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.beat.b1{top:15%} .beat.b2{top:15%} .beat.b3{top:15%}
+.beat.b4{top:15%}
+.beat.b4 .btn{margin-top:18px}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#09141a;padding:14px 28px;border-radius:999px;margin-top:22px;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(219,169,144,.25)}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);box-shadow:none}
+.scrollhint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:.78rem;letter-spacing:.25em;color:var(--muted);transition:opacity .4s}
+.scrollhint::after{content:"";display:block;width:1px;height:34px;background:var(--gold);margin:8px auto 0;animation:drip 1.6s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;z-index:60}
+/* sections */
+section.s{padding:96px 0}
+.s h2.title{font-family:var(--serif);font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.2}
+.lead{color:var(--muted);max-width:620px;margin-top:12px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.about .art{aspect-ratio:4/5;border-radius:20px;border:1px solid var(--line);background:linear-gradient(160deg,#23444d,#09141a);display:grid;place-items:center;position:relative;overflow:hidden}
+.photo-note{position:absolute;bottom:12px;left:12px;right:12px;text-align:center;font-size:.78rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.stat{border-top:2px solid var(--gold);padding-top:10px}
+.stat b{font-family:var(--serif);font-size:1.9rem;color:var(--gold2);display:block}
+.stat span{color:var(--muted);font-size:.85rem}
+@media(max-width:820px){.about{grid-template-columns:1fr}.about .art{aspect-ratio:16/10}}
+/* pull shot */
+.pull{background:var(--bg2);border-block:1px solid var(--line);text-align:center}
+.shot{width:150px;margin:28px auto 0}
+.pullbar{width:min(360px,100%);height:10px;border-radius:99px;background:var(--line);margin:18px auto 0;overflow:hidden}
+.pullbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .1s}
+/* menu */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.tab{background:transparent;border:1px solid var(--line);color:var(--muted);padding:9px 18px;border-radius:999px;font:inherit;cursor:pointer}
+.tab.on{background:var(--gold);color:#09141a;border-color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px;transition:transform .25s,border-color .25s}
+.item:hover{transform:translateY(-4px);border-color:var(--gold)}
+.item .ico{width:54px;height:54px;border-radius:14px;background:#09141a;display:grid;place-items:center;font-size:1.7rem}
+.item h3{font-family:var(--serif);font-size:1.15rem}
+.item p{color:var(--muted);font-size:.9rem;flex:1}
+.item .row{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.price{color:var(--gold2);font-weight:700}
+.add{border:1px solid var(--gold);color:var(--gold2);background:transparent;border-radius:999px;padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+.add:hover{background:var(--gold);color:#09141a}
+.sm{font-size:.8rem;color:var(--muted);margin-top:16px}
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.why div{border:1px solid var(--line);border-radius:18px;padding:24px;background:linear-gradient(160deg,var(--card),var(--bg2))}
+.why h3{font-family:var(--serif);color:var(--gold2);margin:8px 0 6px}
+.why p{color:var(--muted);font-size:.93rem}
+@media(max-width:820px){.why{grid-template-columns:1fr}}
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.rev{border-left:2px solid var(--gold);padding:6px 0 6px 18px;color:var(--muted)}
+.rev q{display:block;color:var(--cream);margin-bottom:8px;font-family:var(--serif)}
+@media(max-width:820px){.reviews{grid-template-columns:1fr}}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.box{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--card)}
+.box h3{font-family:var(--serif);margin-bottom:12px}
+.box dl{display:grid;grid-template-columns:96px 1fr;gap:10px 12px;color:var(--muted)}
+.box dt{color:var(--gold2)}
+form{display:grid;gap:12px}
+input,select,textarea{width:100%;background:#09141a;border:1px solid var(--line);border-radius:12px;color:var(--cream);padding:12px 14px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+label{font-size:.85rem;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){.visit{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:34px 0 90px;text-align:center;color:var(--muted);font-size:.88rem}
+/* cart drawer */
+.drawer{position:fixed;inset:0 0 0 auto;width:min(400px,100%);background:var(--bg2);border-left:1px solid var(--line);z-index:70;transform:translateX(105%);transition:transform .35s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{position:static;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);background:none}
+.drawer h3{font-family:var(--serif)}
+.close{background:none;border:0;color:var(--cream);font-size:1.5rem;cursor:pointer}
+.lines{flex:1;overflow:auto;padding:12px 20px}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);background:none;color:var(--gold2);cursor:pointer}
+.foot{padding:18px 20px;border-top:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;margin-bottom:12px}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}
+.veil.on{opacity:1;pointer-events:auto}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:var(--gold);color:#09141a;padding:10px 20px;border-radius:999px;font-weight:700;opacity:0;transition:.3s;z-index:90}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(min-width:900px){.beat.b1,.beat.b2,.beat.b3,.beat.b4{top:8%}.beat h1,.beat h2{font-size:clamp(2.1rem,4.2vw,3.5rem)}}
+.stick{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none}
+@media(max-width:760px){.stick{display:block}.stick .btn{width:100%;margin:0;text-align:center}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="logo-slot" id="logoSlot" title="Chỗ đặt logo — chờ anh cung cấp">
+        <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="#dba990" stroke-width="2" stroke-linejoin="round"><path d="M20 34C10 30 6 22 8 14c6 0 10 4 12 10 2-6 6-10 12-10 2 8-2 16-12 20z"/><path d="M20 24c-2-6 0-12 0-16 0 4 2 10 0 16z"/></svg>
+      </span>
+      SEN SPA
+    </a>
+    <ul>
+      <li><a href="#gioi-thieu">Về chúng tôi</a></li>
+      <li><a href="#thuc-don">Dịch vụ</a></li>
+      <li><a href="#vi-sao">Vì sao chọn</a></li>
+      <li><a href="#ghe-tham">Ghé thăm</a></li>
+    </ul>
+    <button class="cart-btn" id="openCart" aria-label="Mở giỏ hàng">Lịch hẹn<b id="cnt">0</b></button>
+  </div>
+</header>
+
+<!-- HERO: video-scroll bằng SVG, chạy theo thanh cuộn -->
+<div class="story" id="top">
+  <div class="stage">
+    <svg class="scene" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="cof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8e6df"/><stop offset="1" stop-color="#3f9ea5"/></linearGradient>
+        <linearGradient id="cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9cdb4"/><stop offset=".5" stop-color="#fffaf0"/><stop offset="1" stop-color="#bfae8c"/></linearGradient>
+        <linearGradient id="strm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8e6df"/><stop offset="1" stop-color="#4aa9b0"/></linearGradient>
+        <clipPath id="inside"><path d="M270 720 H530 Q522 846 400 872 Q278 846 270 720 Z"/></clipPath>
+        <radialGradient id="glow" cx="50%" cy="68%" r="40%"><stop offset="0" stop-color="#dba990" stop-opacity=".28"/><stop offset="1" stop-color="#dba990" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="800" height="1000" fill="url(#glow)"/>
+      <g>
+        <rect x="360" y="0" width="80" height="168" rx="10" fill="#1f2d27" stroke="#dba990" stroke-opacity=".5"/>
+        <path d="M368 168 H432 L418 206 H382 Z" fill="#dba990"/>
+      </g>
+      <rect id="stream" x="394" y="206" width="12" height="0" rx="6" fill="url(#strm)"/>
+      <ellipse cx="400" cy="905" rx="250" ry="26" fill="#000" opacity=".45"/>
+      <ellipse cx="400" cy="886" rx="215" ry="20" fill="#9c8a66"/>
+      <path d="M262 712 H538 Q530 852 400 880 Q270 852 262 712 Z" fill="url(#cup)"/>
+      <path d="M262 712 H538 Q534 736 530 752 H270 Q266 736 262 712 Z" fill="#d9a98f" opacity=".85"/>
+      <g clip-path="url(#inside)">
+        <rect id="liquid" x="260" y="872" width="280" height="0" fill="url(#cof)"/>
+        <ellipse id="crema" cx="400" cy="872" rx="128" ry="9" fill="#e3faf6" opacity="0"/>
+      </g>
+      <ellipse cx="400" cy="716" rx="136" ry="10" fill="#fffaf0" opacity=".45"/>
+      <g id="steam" opacity="0" fill="none" stroke="#f6ecd9" stroke-width="5" stroke-linecap="round">
+        <path d="M350 668 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="3s" repeatCount="indefinite"/></path>
+        <path d="M400 658 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".5;.15;.5" dur="3.4s" repeatCount="indefinite"/></path>
+        <path d="M450 668 q-22 -36 0 -72 q22 -36 0 -72"><animate attributeName="stroke-opacity" values=".15;.5;.15" dur="2.8s" repeatCount="indefinite"/></path>
+      </g>
+      <g id="beans" fill="#f4a9bb" stroke="#c46a85"></g>
+    </svg>
+
+    <div class="beat b1 on" data-from="0" data-to=".22">
+      <div class="eyebrow">Sen Spa</div>
+      <h1>Chậm lại một chút,<br><span class="gold">đẹp từ bên trong</span></h1>
+      <p>Không gian yên tĩnh, tinh dầu thiên nhiên, bàn tay tận tâm. Cuộn xuống để xem chậu nước thảo mộc được rót đầy.</p>
+    </div>
+    <div class="beat b2" data-from=".24" data-to=".5">
+      <div class="eyebrow">Bước 1 · Hương thơm</div>
+      <h2>Cánh sen, tinh dầu<br>nhẹ nhàng lan toả</h2>
+      <p>Chọn mùi hương hợp với bạn: sen, sả chanh, oải hương.</p>
+    </div>
+    <div class="beat b3" data-from=".52" data-to=".8">
+      <div class="eyebrow">Bước 2 · Thảo mộc</div>
+      <h2>Nước thảo mộc ấm,<br>êm dịu và thư thái</h2>
+      <p>Ngâm chân, xông hơi hoặc đắp ấm để cơ thể được thả lỏng.</p>
+    </div>
+    <div class="beat b4" data-from=".84" data-to="1.01">
+      <div class="eyebrow">Sẵn sàng đón bạn</div>
+      <h2>Mời bạn nghỉ ngơi</h2>
+      <a class="btn" href="#thuc-don">Xem dịch vụ</a>
+      <a class="btn ghost" href="#ghe-tham" style="margin-left:8px">Đặt lịch</a>
+    </div>
+    <div class="scrollhint" id="hint">CUỘN XUỐNG</div>
+  </div>
+</div>
+
+<!-- GIỚI THIỆU -->
+<section class="s" id="gioi-thieu">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">Về chúng tôi của chúng tôi</div>
+      <h2 class="title">Một giờ dành cho mình, <span class="gold">cả ngày nhẹ nhõm</span></h2>
+      <p class="lead">Sen Spa là nơi bạn dừng lại giữa nhịp sống bận rộn: massage thư giãn, chăm sóc da, gội đầu dưỡng sinh trong không gian yên tĩnh, ánh sáng dịu và tinh dầu thiên nhiên. Kỹ thuật viên lắng nghe nhu cầu của bạn trước khi bắt đầu.</p>
+      <div class="stats">
+        <div class="stat"><b>Thiên nhiên</b><span>tinh dầu, thảo mộc</span></div>
+        <div class="stat"><b>1–1</b><span>mỗi khách một kỹ thuật viên</span></div>
+        <div class="stat"><b>Phòng</b><span>riêng, yên tĩnh</span></div>
+      </div>
+      <p class="sm">Số liệu trên là <span class="todo">nội dung minh hoạ — chờ anh xác nhận</span>.</p>
+    </div>
+    <div class="art reveal">
+      <svg viewBox="0 0 200 160" width="62%" fill="none" stroke="#dba990" stroke-width="2" stroke-linejoin="round"><path d="M100 150C50 130 28 90 38 50c30 0 52 22 62 52 10-30 32-52 62-52 10 40-12 80-62 100z"/><path d="M100 104c-10-30 0-60 0-80 0 20 10 50 0 80z"/></svg>
+      <div class="photo-note"><span class="todo">Chỗ đặt ảnh spa thật — chờ anh gửi ảnh</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TƯƠNG TÁC: kéo một shot -->
+<section class="s pull">
+  <div class="wrap">
+    <div class="eyebrow">Thử một lần</div>
+    <h2 class="title">Tự tay <span class="gold">rót nước thảo mộc</span></h2>
+    <p class="lead" style="margin-inline:auto">Nhấn giữ nút bên dưới để rót nước ấm vào chậu.</p>
+    <svg class="shot" viewBox="0 0 160 170" aria-hidden="true">
+      <defs><clipPath id="c2"><path d="M24 66 H116 Q110 128 70 142 Q30 128 24 66 Z"/></clipPath></defs>
+      <rect id="s-stream" x="68" y="0" width="6" height="0" rx="3" fill="#8fd8d4"/>
+      <path d="M20 62 H120 Q114 134 70 148 Q26 134 20 62 Z" fill="#f6ecd9"/>
+      
+      <g clip-path="url(#c2)"><rect id="s-liq" x="20" y="140" width="100" height="0" fill="#3f9ea5"/></g>
+    </svg>
+    <div class="pullbar"><i id="pullfill"></i></div>
+    <button class="btn" id="pullBtn">Nhấn giữ để rót</button>
+    <p class="sm" id="pullMsg" aria-live="polite">Giữ nút cho đến khi đầy chậu.</p>
+  </div>
+</section>
+
+<!-- THỰC ĐƠN -->
+<section class="s" id="thuc-don">
+  <div class="wrap">
+    <div class="eyebrow">Dịch vụ</div>
+    <h2 class="title reveal">Chọn liệu trình <span class="gold">dành cho bạn</span></h2>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="grid" id="menu"></div>
+    <p class="sm"><span class="todo">Giá và dịch vụ là bản minh hoạ — chờ anh chốt bảng giá thật</span></p>
+  </div>
+</section>
+
+<!-- VÌ SAO -->
+<section class="s" id="vi-sao" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow">Vì sao chọn Sen Spa</div>
+    <h2 class="title reveal">Ba điều <span class="gold">chúng tôi giữ vững</span></h2>
+    <div class="why">
+      <div class="reveal"><span style="font-size:1.8rem">🌿</span><h3>Sản phẩm dịu nhẹ</h3><p>Tinh dầu, thảo mộc rõ nguồn gốc, phù hợp da nhạy cảm.</p></div>
+      <div class="reveal"><span style="font-size:1.8rem">🤲</span><h3>Kỹ thuật tận tâm</h3><p>Quy trình rõ ràng, lắng nghe bạn trước khi bắt đầu.</p></div>
+      <div class="reveal"><span style="font-size:1.8rem">🕯️</span><h3>Không gian yên tĩnh</h3><p>Ánh sáng dịu, nhạc nhẹ, phòng riêng sạch sẽ.</p></div>
+    </div>
+    <div class="reviews">
+      <div class="rev reveal"><q>“Chỗ nhận xét khách hàng thứ nhất”</q><span class="todo">chờ nhận xét thật của khách</span></div>
+      <div class="rev reveal"><q>“Chỗ nhận xét khách hàng thứ hai”</q><span class="todo">chờ nhận xét thật của khách</span></div>
+      <div class="rev reveal"><q>“Chỗ nhận xét khách hàng thứ ba”</q><span class="todo">chờ nhận xét thật của khách</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GHÉ THĂM / ĐẶT BÀN -->
+<section class="s" id="ghe-tham">
+  <div class="wrap">
+    <div class="eyebrow">Ghé thăm</div>
+    <h2 class="title reveal">Hẹn gặp bạn <span class="gold">tại Sen Spa</span></h2>
+    <div class="visit" style="margin-top:30px">
+      <div class="box reveal">
+        <h3>Thông tin spa</h3>
+        <dl>
+          <dt>Địa chỉ</dt><dd><span class="todo">[Địa chỉ — chờ anh cung cấp]</span></dd>
+          <dt>Giờ mở cửa</dt><dd><span class="todo">[Giờ mở cửa — chờ anh]</span></dd>
+          <dt>Điện thoại</dt><dd><span class="todo">[Số điện thoại — chờ anh]</span></dd>
+          <dt>Mạng xã hội</dt><dd><span class="todo">[Facebook / TikTok — chờ anh]</span></dd>
+        </dl>
+        <div style="margin-top:18px;border:1px dashed var(--line);border-radius:12px;padding:30px;text-align:center;color:var(--muted)"><span class="todo">Chỗ nhúng bản đồ — chờ địa chỉ</span></div>
+      </div>
+      <div class="box reveal">
+        <h3>Đặt lịch hẹn</h3>
+        <form id="book" novalidate>
+          <div><label for="bn">Họ tên</label><input id="bn" name="n" required autocomplete="name"></div>
+          <div><label for="bp">Số điện thoại</label><input id="bp" name="p" inputmode="tel" required autocomplete="tel"></div>
+          <div class="two">
+            <div><label for="bd">Ngày</label><input id="bd" type="date" required></div>
+            <div><label for="bt">Giờ</label><input id="bt" type="time" required></div>
+          </div>
+          <div><label for="bg">Số người</label><select id="bg"><option>1–2</option><option>3–4</option><option>5–8</option><option>Trên 8</option></select></div>
+          <button class="btn" type="submit" style="margin:0">Gửi yêu cầu đặt lịch</button>
+          <p class="sm" id="bmsg" aria-live="polite" style="margin:0"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brand" style="justify-content:center;margin-bottom:8px">SEN SPA</p>
+    <p>© <span id="yr"></span> Sen Spa. Mọi quyền được bảo lưu.</p>
+  </div>
+</footer>
+
+<div class="stick"><a class="btn" href="#thuc-don">Đặt lịch ngay</a></div>
+
+<!-- GIỎ HÀNG -->
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Lịch hẹn">
+  <header><h3>Lịch hẹn của bạn</h3><button class="close" id="closeCart" aria-label="Đóng">×</button></header>
+  <div class="lines" id="lines"></div>
+  <div class="foot">
+    <div class="total"><span>Tạm tính</span><span id="sum">0đ</span></div>
+    <button class="btn" id="checkout" style="width:100%;margin:0">Sao chép lịch hẹn để gửi cho spa</button>
+    <p class="sm">Lịch chưa được gửi đi đâu cả. Nút trên chỉ sao chép nội dung để bạn dán vào Zalo/tin nhắn của spa.</p>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))};
+  var fmt=function(n){return n.toLocaleString('vi-VN')+'đ'};
+
+  /* ---------- Hero cuộn ---------- */
+  var story=$('#story')||$('.story'), stream=$('#stream'), liquid=$('#liquid'), crema=$('#crema'),
+      steam=$('#steam'), beats=$$('.beat'), hint=$('#hint'), prog=$('#prog'), hdr=$('#hdr'), beansG=$('#beans');
+  // rau thơm rơi
+  var NS='http://www.w3.org/2000/svg', beans=[];
+  for(var i=0;i<14;i++){
+    var e=document.createElementNS(NS,'ellipse'); e.setAttribute('rx',10+Math.random()*6); e.setAttribute('ry',6+Math.random()*3);
+    var x=80+Math.random()*640; e.setAttribute('cx',x); e.setAttribute('cy',-30);
+    beansG.appendChild(e); beans.push({el:e,x:x,d:Math.random()*.5,r:Math.random()*360});
+  }
+  function render(){
+    var h=story.offsetHeight-innerHeight; if(!(h>0))return;
+    var p=clamp(-story.getBoundingClientRect().top/h,0,1);
+    // dòng chảy: 0.28 → 0.6 ; đầy tô: 0.3 → 0.8
+    var sp=clamp((p-.26)/.14,0,1); stream.setAttribute('height',sp*(700-206));
+    var endFall=clamp((p-.68)/.06,0,1);
+    stream.setAttribute('y',206+endFall*(700-206)); stream.setAttribute('height',Math.max(0,sp*(700-206)*(1-endFall)));
+    var fill=clamp((p-.34)/.42,0,1), H=fill*150;
+    liquid.setAttribute('y',872-H); liquid.setAttribute('height',H);
+    crema.setAttribute('cy',872-H); crema.setAttribute('opacity',fill>.02?1:0);
+    steam.setAttribute('opacity',clamp((p-.8)/.12,0,1));
+    // hạt rơi 0.05 → 0.32
+    beans.forEach(function(b){
+      var t=clamp((p-.04-b.d*.18)/.22,0,1);
+      b.el.setAttribute('cx',b.x+Math.sin(t*6+b.r)*14);
+      b.el.setAttribute('cy',-30+t*620);
+      b.el.setAttribute('opacity',t>0&&t<1?1:0);
+      b.el.setAttribute('transform','rotate('+(b.r+t*240)+' '+b.x+' '+(-30+t*620)+')');
+    });
+    beats.forEach(function(el){
+      var a=parseFloat(el.dataset.from), z=parseFloat(el.dataset.to);
+      el.classList.toggle('on',p>=a&&p<=z||(a===0&&p<=z));
+    });
+    hint.style.opacity=p>.03?0:1;
+  }
+  /* ---------- Chung ---------- */
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      ticking=false; render();
+      var d=document.documentElement; prog.style.width=(scrollY/(d.scrollHeight-innerHeight)*100)+'%';
+      hdr.classList.toggle('solid',scrollY>40);
+    });
+  }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); render(); onScroll();
+
+  // hiện dần
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+    $$('.reveal').forEach(function(el){io.observe(el)});
+  } else $$('.reveal').forEach(function(el){el.classList.add('in')});
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* ---------- Kéo một shot ---------- */
+  var pb=$('#pullBtn'), pf=$('#pullfill'), pm=$('#pullMsg'), sl=$('#s-liq'), ss=$('#s-stream'), lvl=0, timer=null;
+  function setShot(){ var H=lvl*80; sl.setAttribute('y',140-H); sl.setAttribute('height',H); pf.style.width=(lvl*100)+'%'; }
+  function start(e){ e.preventDefault(); if(timer||lvl>=1)return; ss.setAttribute('height',140-0); ss.setAttribute('y',0);
+    ss.setAttribute('height',140-lvl*80);
+    timer=setInterval(function(){ lvl=Math.min(1,lvl+.015); ss.setAttribute('height',140-lvl*80); setShot();
+      if(lvl>=1){ stop(); pm.textContent='Tuyệt vời! Chậu đã đầy nước ấm — mời bạn chọn dịch vụ bên dưới 🌸'; ss.setAttribute('height',0); pb.textContent='Rót lại'; } },30); pm.textContent='Đang rót…'; }
+  function stop(){ clearInterval(timer); timer=null; ss.setAttribute('height',0); if(lvl<1)pm.textContent='Giữ thêm chút nữa để đầy chậu.'; }
+  ['mousedown','touchstart'].forEach(function(t){pb.addEventListener(t,function(e){ if(lvl>=1){lvl=0;setShot();pb.textContent='Nhấn giữ để rót';return;} start(e)},{passive:false})});
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(function(t){pb.addEventListener(t,stop)});
+  pb.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){ if(lvl>=1){lvl=0;setShot();pb.textContent='Nhấn giữ để rót';return;} start(e)}});
+  pb.addEventListener('keyup',stop);
+
+  /* ---------- Thực đơn + giỏ ---------- */
+  var MENU=[
+    {c:'Massage',i:'💆',n:'Massage body thư giãn (60 phút)',d:'Dầu thiên nhiên, lực vừa phải, giải toả mỏi mệt.',p:350000},
+    {c:'Massage',i:'🪨',n:'Massage đá nóng (90 phút)',d:'Đá nóng giúp giãn cơ, ngủ ngon hơn.',p:520000},
+    {c:'Massage',i:'🧘',n:'Massage cổ vai gáy (45 phút)',d:'Dành cho người ngồi văn phòng lâu.',p:290000},
+    {c:'Massage',i:'🦶',n:'Massage chân bấm huyệt (60 phút)',d:'Ngâm chân thảo mộc, bấm huyệt nhẹ nhàng.',p:250000},
+    {c:'Chăm sóc da',i:'🌸',n:'Chăm sóc da cơ bản (60 phút)',d:'Làm sạch, tẩy tế bào chết, đắp mặt nạ dưỡng ẩm.',p:390000},
+    {c:'Chăm sóc da',i:'🧴',n:'Liệu trình da dầu mụn (75 phút)',d:'Làm sạch sâu, làm dịu và cân bằng da.',p:590000},
+    {c:'Chăm sóc da',i:'✨',n:'Dưỡng da collagen (90 phút)',d:'Cấp ẩm, làm sáng da, mềm mịn tức thì.',p:690000},
+    {c:'Chăm sóc tóc & thân',i:'💧',n:'Gội đầu dưỡng sinh (60 phút)',d:'Gội thảo mộc, massage đầu, vai gáy.',p:250000},
+    {c:'Chăm sóc tóc & thân',i:'🌿',n:'Tẩy tế bào chết toàn thân (45 phút)',d:'Muối thảo mộc, da mịn màng.',p:320000},
+    {c:'Chăm sóc tóc & thân',i:'♨️',n:'Xông hơi thảo dược (30 phút)',d:'Thanh lọc, thư giãn, dễ chịu.',p:180000},
+    {c:'Combo',i:'🪷',n:'Combo thư giãn (150 phút)',d:'Massage body + gội đầu dưỡng sinh + ngâm chân.',p:890000},
+    {c:'Combo',i:'💞',n:'Combo cặp đôi (120 phút)',d:'Hai người cùng massage trong một phòng.',p:1190000}
+  ];
+  var cats=['Tất cả'].concat(MENU.reduce(function(a,m){if(a.indexOf(m.c)<0)a.push(m.c);return a},[])), cur='Tất cả';
+  var tabs=$('#tabs'), grid=$('#menu');
+  cats.forEach(function(c){ var b=document.createElement('button'); b.className='tab'+(c===cur?' on':''); b.textContent=c; b.setAttribute('role','tab');
+    b.onclick=function(){cur=c; $$('.tab').forEach(function(t){t.classList.toggle('on',t===b)}); drawMenu()}; tabs.appendChild(b)});
+  function drawMenu(){ grid.innerHTML=''; MENU.forEach(function(m,idx){ if(cur!=='Tất cả'&&m.c!==cur)return;
+    var d=document.createElement('div'); d.className='item';
+    d.innerHTML='<div class="ico">'+m.i+'</div><h3></h3><p></p><div class="row"><span class="price">'+fmt(m.p)+'</span><button class="add">+ Thêm</button></div>';
+    $('h3',d).textContent=m.n; $('p',d).textContent=m.d; $('.add',d).onclick=function(){add(idx)}; grid.appendChild(d)}); }
+  drawMenu();
+
+  var cart={}; try{ cart=JSON.parse(localStorage.getItem('sen-cart')||'{}')||{} }catch(e){ cart={} }
+  function save(){ try{localStorage.setItem('sen-cart',JSON.stringify(cart))}catch(e){} }
+  function toast(t){ var x=$('#toast'); x.textContent=t; x.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(function(){x.classList.remove('on')},1800) }
+  function add(i){ cart[i]=(cart[i]||0)+1; save(); drawCart(); toast('Đã thêm '+MENU[i].n) }
+  function drawCart(){ var L=$('#lines'); L.innerHTML=''; var tot=0, n=0;
+    Object.keys(cart).forEach(function(k){ var m=MENU[k]; if(!m||!cart[k])return; n+=cart[k]; tot+=cart[k]*m.p;
+      var d=document.createElement('div'); d.className='line';
+      d.innerHTML='<div><b></b><div class="sm" style="margin:2px 0 0">'+fmt(m.p)+'</div></div><div class="qty"><button aria-label="Giảm">−</button><span>'+cart[k]+'</span><button aria-label="Tăng">+</button></div>';
+      $('b',d).textContent=m.n; var bt=$$('button',d); bt[0].onclick=function(){cart[k]--; if(cart[k]<=0)delete cart[k]; save(); drawCart()}; bt[1].onclick=function(){cart[k]++; save(); drawCart()}; L.appendChild(d)});
+    if(!n) L.innerHTML='<p class="sm" style="padding:20px 0">Chưa có dịch vụ nào. Hãy chọn liệu trình từ danh sách.</p>';
+    $('#sum').textContent=fmt(tot); $('#cnt').textContent=n; $('#checkout').disabled=!n; $('#checkout').style.opacity=n?1:.5 }
+  drawCart();
+  function openC(o){ $('#drawer').classList.toggle('open',o); $('#veil').classList.toggle('on',o) }
+  $('#openCart').onclick=function(){openC(true)}; $('#closeCart').onclick=function(){openC(false)}; $('#veil').onclick=function(){openC(false)};
+  addEventListener('keydown',function(e){if(e.key==='Escape')openC(false)});
+  $('#checkout').onclick=function(){
+    var lines=['LỊCH HẸN — Sen Spa'], tot=0;
+    Object.keys(cart).forEach(function(k){var m=MENU[k]; if(!m)return; lines.push('- '+m.n+' x'+cart[k]+' = '+fmt(m.p*cart[k])); tot+=m.p*cart[k]});
+    lines.push('Tổng: '+fmt(tot)); var txt=lines.join('\n');
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){toast('Đã sao chép — dán vào tin nhắn cho spa')},function(){toast('Không sao chép được, hãy chụp màn hình giỏ hàng')}) }
+    else toast('Trình duyệt chưa hỗ trợ sao chép');
+  };
+
+  /* ---------- Đặt bàn (kiểm tra dữ liệu, chưa gửi đi đâu) ---------- */
+  var today=new Date().toISOString().slice(0,10); $('#bd').min=today;
+  $('#book').addEventListener('submit',function(e){ e.preventDefault();
+    var n=$('#bn').value.trim(), p=$('#bp').value.replace(/\s/g,''), d=$('#bd').value, t=$('#bt').value, m=$('#bmsg');
+    if(n.length<2){m.textContent='Vui lòng nhập họ tên.';return}
+    if(!/^(0|\+84)\d{9,10}$/.test(p)){m.textContent='Số điện thoại chưa đúng (ví dụ 0901234567).';return}
+    if(!d||!t){m.textContent='Vui lòng chọn ngày và giờ.';return}
+    m.textContent='Cảm ơn '+n+'! Yêu cầu đặt lịch lúc '+t+' ngày '+d.split('-').reverse().join('/')+' đã được ghi nhận (bản xem thử — chưa kết nối gửi cho quán).';
+  });
+})();
+</script>
+</body>
+</html>
